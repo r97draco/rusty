@@ -1,20 +1,25 @@
-// To run the code: 
+// To run the code:
 // cargo run
+
+//Guide
+// https://vnduongthanhtung.gitbooks.io/migrate-from-c-to-rust/content/
 
 use std::io::{ self, BufRead, Write };
 
 fn main() {
-    hello_world();
-    io();
+    // hello_world();
+    // io();
     data_types();
+    auto_infer_datatype();
+    mut_data_types();
 }
 
 fn hello_world() {
     println!("Hello, world!");
 }
 
-fn io(){
-    let stdin= io::stdin();
+fn io() {
+    let stdin = io::stdin();
     print!("Enter your name : ");
     io::stdout().flush();
     let mut name: String = String::new();
@@ -38,7 +43,7 @@ fn io(){
 // bool	            bool
 // char*	        &str   //Raw string (stack allocated) object. use to_str() to convert String to &str
 // std::string	    String //Owned string (heap allocated) object. use to_owned() to convert &str to String
-fn data_types(){
+fn data_types() {
     let a: i32 = -2000;
     let b: i16 = -2993;
     let c: i64 = -102002030i64;
@@ -52,5 +57,36 @@ fn data_types(){
     let n: bool = true;
     let s: &str = "Hello";
     let st: String = s.to_owned();
-    print!("a : {} \n b : {} \n c: {} \n d: {} \n e: {} \n f: {} \n g: {} \n k: {} \n l: {} \n m: {} \n n: {} \n s: {} \n st: {}", a, b, c, d, e, f, g, k, l, m, n, s, st);
+    print!(
+        "a : {} \n b : {} \n c: {} \n d: {} \n e: {} \n f: {} \n g: {} \n k: {} \n l: {} \n m: {} \n n: {} \n s: {} \n st: {}",
+        a,
+        b,
+        c,
+        d,
+        e,
+        f,
+        g,
+        k,
+        l,
+        m,
+        n,
+        s,
+        st
+    );
+}
+
+// Rust can infer data types for variables based on the value assigned to them at initialization, so there is no need for explicit declaration of data types (this is similar to the use of auto in modern C++)
+fn auto_infer_datatype() {
+    let a = -100000i32;
+    let b = -10000i16;
+    let s = "Hello";
+    let st = s.to_owned();
+}
+
+// Variables in Rust are immutable by default. If a variable needs to change value during runtime, it needs to be declared as mutable with keyword mut
+fn mut_data_types() {
+    let a = -100000i32;
+    let mut b = -10000i16;
+    // a = 100000;         // error, cannot change value of immutable variable
+    b += 100; // ok, since b is mutable
 }
