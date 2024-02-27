@@ -9,15 +9,18 @@ use std::io::{ self, BufRead, Write };
 fn main() {
     // hello_world();
     // io();
-    data_types();
-    auto_infer_datatype();
-    mut_data_types();
+    // data_types();
+    // auto_infer_datatype();
+    // mut_data_types();'
+    control_flow();
 }
 
+// Hello World
 fn hello_world() {
     println!("Hello, world!");
 }
 
+// Console Input/Output
 fn io() {
     let stdin = io::stdin();
     print!("Enter your name : ");
@@ -27,6 +30,7 @@ fn io() {
     print!("Hello {} !", name.trim());
 }
 
+//Variables and Data Types
 // Here are the basic data types in C++ (64bit) and Rust
 // C++	            Rust
 // int	            i32
@@ -89,4 +93,42 @@ fn mut_data_types() {
     let mut b = -10000i16;
     // a = 100000;         // error, cannot change value of immutable variable
     b += 100; // ok, since b is mutable
+}
+
+// Control Flow
+fn control_flow(){
+    let x = 1;
+    if x>0 {
+        println!("Positive number");
+    } else if x<0 {
+        println!("Negative number");
+    } else {
+        println!("Zero");
+    }
+
+    for i in 0..10 {
+        println!("{}*{}={}", i,i,i*i);
+    }
+
+    let mut t = 10;
+    while t<100 {
+        t+=t/2; 
+    }
+    println!("{}", t);
+
+    t= 0;
+    loop{
+        println!("{}", t);
+        t+=2;
+        if !(t<=10){
+            break;
+        }
+    }
+
+    let age = 15;
+    match age{
+        0..=12 => println!("Child"),
+        n @ 13..=19 => println!("Teenager at the age of {}", n),
+        n => println!("Adult at the age of {}", n)
+    }
 }
