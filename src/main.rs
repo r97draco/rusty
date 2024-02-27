@@ -222,6 +222,20 @@ fn collec_vectors() {
     }
 }
 
+//Slice 
+fn collec_slices() {
+    let arr = [0;10];
+    for i in 0..10 {
+        arr[i] = i;
+    }
+    let sub_arr = &arr[1..4]; // Slice with index 1,2,3
+    for x in sub_arr.iter() {
+        print!("{}", x);
+    }
+    println!("");
+}
+
 //Map
+
 
 //Set
