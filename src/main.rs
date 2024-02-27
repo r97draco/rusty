@@ -12,7 +12,8 @@ fn main() {
     // data_types();
     // auto_infer_datatype();
     // mut_data_types();'
-    control_flow();
+    // control_flow();
+    functions();
 }
 
 // Hello World
@@ -116,6 +117,7 @@ fn control_flow(){
     }
     println!("{}", t);
 
+    // do while in c++
     t= 0;
     loop{
         println!("{}", t);
@@ -131,4 +133,22 @@ fn control_flow(){
         n @ 13..=19 => println!("Teenager at the age of {}", n),
         n => println!("Adult at the age of {}", n)
     }
+}
+
+
+// Functions 
+// The return keyword can also be removed if the semicolon at the end of the return statement is not present, which is similar to some languages such as Ruby or Erlang
+fn add(x: i32, y: i32) -> i32 {
+    x + y
+}
+
+fn print(x: i32) {
+    println!("{}", x);
+}
+
+fn functions() {
+    let x = -10;
+    let y = 20;
+    let z = add(x, y);
+    print(z);
 }
