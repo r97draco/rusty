@@ -224,7 +224,7 @@ fn collec_vectors() {
 
 //Slice 
 fn collec_slices() {
-    let arr = [0;10];
+    let mut arr = [0;10];
     for i in 0..10 {
         arr[i] = i;
     }
