@@ -5,6 +5,7 @@
 // https://vnduongthanhtung.gitbooks.io/migrate-from-c-to-rust/content/
 
 use std::io::{ self, BufRead, Write };
+use std::collections::HashMap;
 
 fn main() {
     // hello_world();
@@ -15,7 +16,9 @@ fn main() {
     // control_flow();
     // functions();
     // collec_arrays();
-    collec_vectors();
+    // collec_vectors();
+    // collec_slices();
+    collec_map();
 }
 
 // 1
@@ -236,6 +239,23 @@ fn collec_slices() {
 }
 
 //Map
+fn collec_map(){
+    let mut map = HashMap::new();
+    map.insert("one", 1);
+    map.insert("two", 2);
+    map.insert("three", 3);
+    map.insert("four", 4);
+
+    if let Some(num) = map.get("one"){
+        println!("One is {}", num);
+    }
+
+    map.remove("one");
+
+    for (key, value) in &map {
+        println!("{}: {}", key, value);
+    }
+}
 
 
 //Set
