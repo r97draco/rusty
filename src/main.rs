@@ -239,6 +239,7 @@ fn collec_slices() {
 }
 
 //Map
+// Its not sorted automatically
 fn collec_map(){
     let mut map = HashMap::new();
     map.insert("one", 1);
@@ -259,3 +260,20 @@ fn collec_map(){
 
 
 //Set
+fn collec_set(){
+    let mut set = HashSet::new();
+    set.insert(1);
+    set.insert(2);
+    set.insert(3);
+    set.insert(4);
+
+    if set.contains(&1){
+        println!("1 is in the set");
+    }
+
+    set.remove(&1);
+
+    for x in &set {
+        println!("{}", x);
+    }
+}
